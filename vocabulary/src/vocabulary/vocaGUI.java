@@ -41,7 +41,7 @@ import javax.swing.Box;
 import javax.swing.DefaultListModel;
 
 import java.awt.GridLayout;
-
+ 
 public class vocaGUI extends JFrame {
 	ArrayList<Word> arr;
 	WordDB dbw=new WordDB();

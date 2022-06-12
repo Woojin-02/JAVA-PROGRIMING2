@@ -1,5 +1,5 @@
 package vocabulary;
-
+ 
 public class Word {
 	String english; // 영단어를 의미합니다.
 	String korean; // 한글 해석을 의미합니다.
