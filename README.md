@@ -12,7 +12,7 @@
 도움말\
 ![image](https://user-images.githubusercontent.com/64728336/174473151-f524599c-0119-4108-bfa9-d288984fc687.png)
 
--메시지 다이얼로그를 이용해 소개와 도움말 다이얼로그 설정.
+-메시지 다이얼로그를 이용해 소개와 도움말 다이얼로그 설정
 ***
 ### 툴바
 ![image](https://user-images.githubusercontent.com/64728336/174473182-9384ae5b-26c6-45fe-b763-3014c9a2685e.png)
@@ -33,14 +33,14 @@
 ![image](https://user-images.githubusercontent.com/64728336/174473378-98a4d204-d143-45d8-ac03-8b67526bf2d7.png)
 ![image](https://user-images.githubusercontent.com/64728336/174473450-82f2af17-36c2-4f1d-911a-96ce7f7f97f4.png)
 
--감추기 버튼 - "영단어" Label과 "해석" Label 옆에 버튼은 각각 해당하는 리스트를 가리도록 함
+-감추기 버튼 - "영단어 Label"과 "해석 Label" 옆에 버튼은 각각 해당하는 리스트를 가리도록 함
 ***
 ### 단어 테스트
 ![image](https://user-images.githubusercontent.com/64728336/174474067-c9342e01-eca4-42d0-bf69-6e22ff52e0c0.png)
 
--전체 단어 갯수 - 단어장에 등록되어있는 전체 단어 갯수 알림\
+-전체 단어 개수 - 단어장에 등록되어있는 전체 단어 갯수 알림\
 -최근 점수 - 가장 최근에 본 테스트의 점수를 표시\
--최근 틀린 갯수 - 가장 최근에 본 테스트에서 틀린 갯수를 표시
+-최근 틀린 개수 - 가장 최근에 본 테스트에서 틀린 개수를 표시
 
 ![image](https://user-images.githubusercontent.com/64728336/174474124-1695708a-4c63-471d-886e-0642ff56fd10.png)
 
