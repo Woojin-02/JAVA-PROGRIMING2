@@ -1,9 +1,20 @@
 package vocabulary;
  
 public class Word {
-	String english; // 영단어를 의미합니다.
-	String korean; // 한글 해석을 의미합니다.
-	// 각각의 객체 처리 메소드를 정의합니다.
+	String english;		// 영단어
+	String korean;		// 한글뜻
+	
+	public Word() {
+		
+	}
+	
+	// 영단어 생성자 정의
+	public Word(String english, String korean) {
+		this.english = english;
+		this.korean = korean;
+	}
+	
+	// 객체 메소드
 	public String getEnglish() {
 		return english;
 	}
@@ -14,11 +25,6 @@ public class Word {
 		return korean;
 	}
 	public void setKorean(String korean) {
-		this.korean = korean;
-	}
-	// 영단어 생성자를 정의합니다.
-	public Word(String english, String korean) {
-		this.english = english;
 		this.korean = korean;
 	}
 }
