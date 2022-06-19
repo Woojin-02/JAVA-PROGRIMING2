@@ -251,7 +251,6 @@ public class vocaGUI extends JFrame {
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				wordInsert(addEnglishText.getText(), addKoreanText.getText());
-				//voc.add(new Word(addEnglishText.getText(), addKoreanText.getText()));
 				listSetting();
 				addEnglishText.setText("");
 				addKoreanText.setText("");
@@ -596,64 +595,6 @@ public class vocaGUI extends JFrame {
 			testTotalCountText.setText(voc.size() + " 개");
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "리스트를 불러오지 못했습니다.", "Message", JOptionPane.ERROR_MESSAGE);
-			e.printStackTrace();
-		}
-		return voc;
-	}
-	
-	public ArrayList<Word> listSettingE() {
-		//DB에서 내용 불러오기
-		Connection con = null;
-		Statement st = null;
-		ResultSet rs = null;
-		ArrayList<Word> voc = new ArrayList<Word>();
-		try {
-			con = DriverManager.getConnection(url, user, pwd);
-			String sql = "SELECT * FROM word";
-			st = con.createStatement();
-			rs = st.executeQuery(sql);
-			while(rs.next()) {
-				Word w = new Word();
-				w.setEnglish(rs.getString("eng"));
-				voc.add(w);
-			}
-			//단어장 리스트에 내용 출력
-			listEnglishModel = new DefaultListModel();
-			for(int i = 0; i < voc.size(); i++)
-			{
-				listEnglishModel.addElement((i + 1) + ". " + voc.get(i).getEnglish());
-			}
-			listEnglishList.setModel(listEnglishModel);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return voc;
-	}
-	
-	public ArrayList<Word> listSettingK() {
-		//DB에서 내용 불러오기
-		Connection con = null;
-		Statement st = null;
-		ResultSet rs = null;
-		ArrayList<Word> voc = new ArrayList<Word>();
-		try {
-			con = DriverManager.getConnection(url, user, pwd);
-			String sql = "SELECT * FROM word";
-			st = con.createStatement();
-			rs = st.executeQuery(sql);
-			while(rs.next()) {
-				Word w = new Word();
-				w.setKorean(rs.getString("kor"));
-				voc.add(w);
-			}
-			//단어장 리스트에 내용 출력
-			listKoreanModel = new DefaultListModel();
-			for(int i = 0; i < voc.size(); i++)
-			{
-				listKoreanModel.addElement((i + 1) + ". " + voc.get(i).getKorean());
-			}
-			listKoreanList.setModel(listKoreanModel);
-		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return voc;
