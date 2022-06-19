@@ -345,7 +345,7 @@ public class vocaGUI extends JFrame {
 				//이전 테스트 결과 초기화
 				testResultText.setText("");
 				testFailCountText.setText("");
-				//
+				list();		//단어 불러오기
 				String korean;
 				ArrayList<Word> testWords = new ArrayList<Word>();
 				int failCount = 0;
@@ -382,8 +382,7 @@ public class vocaGUI extends JFrame {
 				scrollPane.setPreferredSize(new Dimension(100, 100));
 				JOptionPane.showMessageDialog(null, scrollPane, "테스트 결과", JOptionPane.INFORMATION_MESSAGE);
 			}
-		});
-		
+		});	
 		//테스트 실행 버튼
 		testButton.setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		testButton.setBounds(402, 33, 133, 147);
@@ -598,6 +597,40 @@ public class vocaGUI extends JFrame {
 			e.printStackTrace();
 		}
 		return voc;
+	}
+	
+	public void list() {
+		//DB에서 내용 불러오기
+		Connection con = null;
+		Statement st = null;
+		ResultSet rs = null;
+		try {
+			con = DriverManager.getConnection(url, user, pwd);
+			String sql = "SELECT * FROM word";
+			st = con.createStatement();
+			rs = st.executeQuery(sql);
+			while(rs.next()) {
+				Word w = new Word();
+				w.setEnglish(rs.getString("eng"));
+				w.setKorean(rs.getString("kor"));
+				voc.add(w);
+			}
+			//단어장 리스트에 내용 출력
+			listEnglishModel = new DefaultListModel();
+			listKoreanModel = new DefaultListModel();
+			for(int i = 0; i < voc.size(); i++)
+			{
+				listEnglishModel.addElement((i + 1) + ". " + voc.get(i).getEnglish());
+				listKoreanModel.addElement((i + 1) + ". " + voc.get(i).getKorean());
+			}
+			listEnglishList.setModel(listEnglishModel);
+			listKoreanList.setModel(listKoreanModel);
+			//총 단어 수 표시
+			testTotalCountText.setText(voc.size() + " 개");
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "리스트를 불러오지 못했습니다.", "Message", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
 	}
 	
 }
